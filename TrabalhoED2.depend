@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1608044943 source:d:\git\trabalhoed2\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<chrono>
+
