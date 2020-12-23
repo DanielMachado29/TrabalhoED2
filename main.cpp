@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <chrono>
+#include <sstream>
 
 using namespace std;
 using namespace std::chrono;
@@ -58,6 +59,18 @@ using namespace std::chrono;
 // }
 
 
+
+void leArquivo(){
+    ifstream arq("brazil_covid19_cities.csv");
+if(!arq.is_open())
+    {
+        cout<< "Problema ao abrir o Arquivo!"<< endl;
+       // https://www.youtube.com/watch?v=_IzYGiuX8QM
+    }
+
+}
+
+
 void leArquivoTextoGeral()
 {
     ifstream arq("brazil_covid19_cities.csv");
@@ -68,14 +81,15 @@ void leArquivoTextoGeral()
         int ano;
         int mes;
         int dia;
-
+        
         while(!arq.eof()){
-        getline(arq, str);
+        getline(arq, str , ',');
         arq >> ano;
         arq >> mes;                     // dessa forma , o mes e o dia tao ficando com "-" na frente  
         arq >> dia;                     // podemos tratar o "negativo no meio do codigo depois" -> da pra tratar no construtor
+        
 
-        cout << ano << mes <<dia << endl;
+        cout << ano << mes <<dia << str << endl;
         }
 
         cout << "\n***" << endl;
@@ -94,3 +108,4 @@ int main()
 
     return 0;
 }
+ 
