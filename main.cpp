@@ -8,103 +8,40 @@
 using namespace std;
 using namespace std::chrono;
 
-// void leArquivoTextoGeral()
-// {
-//     ifstream arq("brazil_covid19_cities.csv");
-
-//     if (arq.is_open())
-//     {
-//         cout << "Informacoes armazenadas no arquivo:\n\n***" << endl; ////////////////////////////////PRIMEIRA FORMA QUE FIZ
-
-//         string str;
-//         float val;
-//         while (arq.is_open())
-//         {
-//             getline(arq, str);
-//             arq >> val;
-//             cout << val << str << endl;
-//         }
-//         cout << "\n***" << endl;
-//     }
-//     else
-//         cerr << "ERRO: O arquivo nao pode ser aberto!" << endl;
-//     cout << "ACABEI DE LER O DOCUMENTOOOOOOOO" << endl;
-// }
-
-
-
-// void leArquivoTextoGeral()
-// {
-//     ifstream arq("brazil_covid19_cities.csv");
-
-//     if(arq.is_open())
-//     {
-//         string str;
-//         float val;
-
-//         while(!arq.eof()){
-//         getline(arq, str);
-//         arq >> val;
-//         cout <<  val << str << endl;
-//         }
-//         // ERRO: irá gerar lixo de memória, pois val irá armazenar todos os dígitos na sequência////////////////////////////////SEGUNDA FORMA QUE FIZ
-//         //int intval; 
-//         //arq >> intval;
-//         // cout << str << '\n' << val << '\n' << intval << endl;
-
-//         cout << "\n***" << endl;
-//     }
-//     else
-//         cerr << "ERRO: O arquivo nao pode ser aberto!" << endl;
-// }
-
-
-
 void leArquivo(){
     ifstream arq("brazil_covid19_cities.csv");
-if(!arq.is_open())
-    {
-        cout<< "Problema ao abrir o Arquivo!"<< endl;
-       // https://www.youtube.com/watch?v=_IzYGiuX8QM
-    }
-
-}
-
-
-void leArquivoTextoGeral()
-{
-    ifstream arq("brazil_covid19_cities.csv");
-
-    if(arq.is_open())
-    {
-        string str;
-        int ano;
-        int mes;
-        int dia;
-        
-        while(!arq.eof()){
-        getline(arq, str , ',');
-        arq >> ano;
-        arq >> mes;                     // dessa forma , o mes e o dia tao ficando com "-" na frente  
-        arq >> dia;                     // podemos tratar o "negativo no meio do codigo depois" -> da pra tratar no construtor
-        
-
-        cout << ano << mes <<dia << str << endl;
+    if(!arq.is_open())
+        {
+            cout<< "Problema ao abrir o Arquivo!"<< endl;
+            return;
         }
+    string dataCompleta, estado, cidade;
+    int dia, mes, ano;
+    int casos, mortes;
+    int codigoCidade;  //// DUVIDA -> ISSO DEVERIA SER UM FLOAT???
+    string linha , stringTemporaria1 ,stringTemporaria2,stringTemporaria3;
+    while(getline(arq,linha)){
+        stringstream ss(linha);
+        getline(ss, dataCompleta , ',');
+        getline(ss, estado , ',');
+        getline(ss, cidade , ',');
+        getline(ss, stringTemporaria1 , ',');
+        istringstream(stringTemporaria1) >> codigoCidade;//// DUVIDA -> ISSO DEVERIA SER UM FLOAT???
+        getline(ss, stringTemporaria2 , ',');
+        istringstream(stringTemporaria2) >> casos;
+        getline(ss, stringTemporaria3 , ',');
+        istringstream(stringTemporaria3) >> mortes;
 
-        cout << "\n***" << endl;
+        cout<< ' ' <<dataCompleta <<' ' << estado <<' ' << cidade <<' ' << codigoCidade <<' ' << casos <<' ' << mortes <<endl;
     }
-    else
-        cerr << "ERRO: O arquivo nao pode ser aberto!" << endl;
+    cout << "terminei de ler papae"<<endl;
+    arq.close();
 }
-
-
-
 
 int main()
 {
     
-    leArquivoTextoGeral();
+    leArquivo();
 
     return 0;
 }
