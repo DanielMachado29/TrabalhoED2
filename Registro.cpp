@@ -47,3 +47,22 @@ void Registro::setMortes(int mortes){
 void Registro::imprime(){
     cout<< ' ' <<dataCompleta <<' ' << estado <<' ' << cidade <<' ' << codigoCidade <<' ' << casos <<' ' << mortes <<endl;
 }
+
+string Registro::getDataCompleta(){
+    return dataCompleta;
+}
+string Registro::getCidade(){
+    return cidade;
+}
+string Registro::getEstado(){
+    return estado;
+}
+int Registro::getCodigoCidade(){
+    return codigoCidade;
+}
+int Registro::getCasos(){
+    return casos;
+}
+int Registro::getMortes(){
+    return mortes;
+}

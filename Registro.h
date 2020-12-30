@@ -23,5 +23,11 @@ public:
     void setCodigoCidade(int codigoCidade);
     void setCasos(int casos);
     void setMortes(int mortes);
+    string getDataCompleta();
+    string getEstado();
+    string getCidade();
+    int getCodigoCidade();
+    int getCasos();
+    int getMortes();
     void imprime();
 };
