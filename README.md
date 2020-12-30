@@ -7,5 +7,5 @@ Primeira parte do trabalho de Estrutura de Dados 2 ERE 2020/3
 - Marcos Mateus Oliveira dos Santos
 - Anthony Lima e Silva
 
-Entrega:
+# Entrega:
 PARTE 1 : 31/01/2021
