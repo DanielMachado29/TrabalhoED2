@@ -61,7 +61,7 @@ void leArquivo(Registro *r , int N)
 
 
 
-void swap(Registro *r,int a,int b)  
+void swap(Registro *r,int a,int b)  //Funcao para realizar a troca entre dois indices para o metodo BubbleSort
 {  
     
     Registro temp(r[a].getDataCompleta(),r[a].getEstado(),r[a].getCidade(),r[a].getCodigoCidade(),r[a].getCasos(),r[a].getMortes());
@@ -82,19 +82,17 @@ void swap(Registro *r,int a,int b)
     r[a].setCasos(temp.getCasos()); 
     r[a].setMortes(temp.getMortes()); 
 }  
-  
-// A function to implement bubble sort  
+    
 void bubbleSort(Registro *r, int n)  
 {  
     int i, j;  
     for (i = 0; i < n-1; i++)
-    // Last i elements are already in place  
+    // Os ultimos elementos de i já estão no lugar 
     for (j = 0; j < n-i-1; j++)  
         if (r[j].getCasos() > r[j+1].getCasos())  
             swap(r,j,j+1);  
 }  
   
-/* Function to print an array */
 void printArray(Registro *r, int size)  
 {    
     for (int i = 0; i < size; i++)  
