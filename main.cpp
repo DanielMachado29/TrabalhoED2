@@ -10,7 +10,7 @@
 using namespace std;
 using namespace std::chrono;
 
-void leArquivo(Registro *r)
+void leArquivo(Registro *r , int N)
 {
     ifstream arq("brazil_covid19_cities.csv");
     if (!arq.is_open())
@@ -45,13 +45,14 @@ void leArquivo(Registro *r)
         r[cont].setMortes(mortes);
 
         //r[cont].imprime();
-        if(cont>50000)
+        if(cont>N)
         break;
         cont++;
         
         
 
     }
+    cont--;
     cout << "terminei de ler papae" << endl;
     cout << "nesse arquivo , tem " << cont << " registros" <<endl;
     arq.close();
@@ -101,22 +102,20 @@ void printArray(Registro *r, int size)
     cout << endl;  
 }
 
+void testeOrdenandoBubbleSort(Registro *r , int N){
+    leArquivo(r,N);
+    cout<<"-----------------------------------------"<<endl;
+    bubbleSort(r, N);
+    printArray(r,N);
+    cout<<"teste completo"<<endl;
+
+}
+
 int main()
 {
-    Registro *r = new Registro[50000];
-    leArquivo(r);
-    //printArray(r,10000);
-    cout<<"-----------------------------------------"<<endl;
-    bubbleSort(r, 50000);
-    printArray(r,50000);
-    cout<<"teste completo"<<endl;
-    
-
+    int tamanhoN[] = {10000,50000,100000,500000,1000000};
+    Registro *r = new Registro[tamanhoN[2]];
+    testeOrdenandoBubbleSort(r,tamanhoN[2]); // acima de 100.000 registros ja demora bastante
     delete[] r;
-
-
-
-
-
     return 0;
 }
