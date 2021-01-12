@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <sstream>
+#include <algorithm>    // std::swap
 #include "Registro.cpp"
 #define TAMANHOMAX 1431490
 
@@ -23,8 +24,6 @@ void leArquivo(Registro *r , int N)
     int codigoCidade; //// DUVIDA -> ISSO DEVERIA SER UM FLOAT???
     string linha, stringTemporaria1, stringTemporaria2, stringTemporaria3;
     int cont=0;
-    cout<<"aisdjaosid"<<endl;
-
     while (getline(arq, linha))
     {
         stringstream ss(linha);
@@ -59,29 +58,6 @@ void leArquivo(Registro *r , int N)
 }
 
 
-
-
-void swap(Registro *r,int a,int b)  //Funcao para realizar a troca entre dois indices para o metodo BubbleSort
-{  
-    
-    Registro temp(r[a].getDataCompleta(),r[a].getEstado(),r[a].getCidade(),r[a].getCodigoCidade(),r[a].getCasos(),r[a].getMortes());
-   
-    r[b].setDataCompleta(r[a].getDataCompleta());  
-    r[b].setEstado(r[a].getEstado());
-    r[b].setCidade(r[a].getCidade());
-    r[b].setCodigoCidade(r[a].getCodigoCidade());
-    r[b].setCasos(r[a].getCasos());
-    r[b].setMortes(r[a].getMortes());
-
-
-
-    r[a].setDataCompleta(temp.getDataCompleta()); 
-    r[a].setEstado(temp.getEstado()); 
-    r[a].setCidade(temp.getCidade()); 
-    r[a].setCodigoCidade(temp.getCodigoCidade()); 
-    r[a].setCasos(temp.getCasos()); 
-    r[a].setMortes(temp.getMortes()); 
-}  
     
 void bubbleSort(Registro *r, int n)  
 {  
@@ -90,7 +66,7 @@ void bubbleSort(Registro *r, int n)
     // Os ultimos elementos de i já estão no lugar 
     for (j = 0; j < n-i-1; j++)  
         if (r[j].getCasos() > r[j+1].getCasos())  
-            swap(r,j,j+1);  
+            swap(r[j],r[j+1]);
 }  
   
 void printArray(Registro *r, int size)  
@@ -112,8 +88,8 @@ void testeOrdenandoBubbleSort(Registro *r , int N){
 int main()
 {
     int tamanhoN[] = {10000,50000,100000,500000,1000000};
-    Registro *r = new Registro[tamanhoN[2]];
-    testeOrdenandoBubbleSort(r,tamanhoN[2]); // acima de 100.000 registros ja demora bastante
+    Registro *r = new Registro[tamanhoN[0]];
+    testeOrdenandoBubbleSort(r,tamanhoN[0]); // acima de 100.000 registros ja demora bastante
     delete[] r;
     return 0;
 }
