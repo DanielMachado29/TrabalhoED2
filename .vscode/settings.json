@@ -8,6 +8,9 @@
         "array": "cpp",
         "string": "cpp",
         "string_view": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "chrono": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
     }
 }
