@@ -30,4 +30,5 @@ public:
     int getCasos();
     int getMortes();
     void imprime();
+    void imprimeCidade(Registro *r, int size);
 };

@@ -24,6 +24,13 @@ Registro::Registro(string dataCompleta, string estado, string cidade, int codigo
 
 Registro::~Registro(){}
 
+void Registro::imprimeCidade(Registro *r, int size)  
+{    
+    for (int i = 0; i < size; i++)  
+        cout << r[i].getCidade() << " ";  
+    cout << endl;  
+}
+
 //fazer um set  de data separado bunitim como int e tal sla
 
 void Registro::setDataCompleta(string dataCompleta){
