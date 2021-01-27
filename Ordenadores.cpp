@@ -146,3 +146,116 @@ void Ordenadores::heapSort(Registro *registros , int n)
 		heapify(registros, i, 0);
 	}
 }
+
+
+
+void Ordenadores::quickSort(Registro *registros,int inicio,int fim){
+    int i, j;
+	i = inicio;
+	j = fim-1;
+	int meio= (inicio + fim)/2;
+
+        Registro a = registros[inicio];
+        Registro b = registros[meio];
+        Registro c = registros[fim];
+        int medianaIndice; 
+        
+        if(a.getCasos() < b.getCasos()){
+            if(b.getCasos() < c.getCasos()){
+                //a < b && b < c
+                medianaIndice = meio;
+            }else{                
+                if(a.getCasos() < c.getCasos()){
+                    //a < c && c <= b
+                    medianaIndice = fim;
+                }else{
+                    //c <= a && a < b
+                    medianaIndice = inicio;
+                }
+            }
+        }else{
+            if(c.getCasos() < b.getCasos()){
+                //c < b && b <= a
+                medianaIndice = meio;
+            }else{
+                if(c.getCasos() < a.getCasos()){
+                    //b <= c && c < a
+                    medianaIndice = fim;
+                }else{
+                    //b <= a && a <= c
+                    medianaIndice = inicio;
+                }
+            }
+        }
+
+    Registro pivo= registros[medianaIndice];
+
+    
+	while(i <= j)
+	{
+		while(registros[i].getCasos() < pivo.getCasos() && i < fim)
+		{
+			i++;
+		}
+		while(registros[j].getCasos() > pivo.getCasos() && j > inicio)
+		{
+			j--;
+		}
+		if(i <= j)
+		{
+            swap(registros[i],registros[j]);
+			i++;
+			j--;
+		}
+	}
+	if(j > inicio)
+		quickSort(registros, inicio, j+1);
+	if(i < fim)
+		quickSort(registros, i, fim);
+}
+
+int Ordenadores::getMax(Registro *registros, int n) 
+{ 
+    int mx = registros[0].getCasos(); 
+    for (int i = 1; i < n; i++) 
+        if (registros[i].getCasos() > mx) 
+            mx = registros[i].getCasos(); 
+    return mx; 
+} 
+  
+
+void Ordenadores::countSort(Registro *registros, int n, int exp) 
+{ 
+    
+    int i, cont[10] = {0}; 
+    Registro *saida =  new Registro[n];
+    
+    for (i = 0; i < n; i++) 
+        cont[(registros[i].getCasos() / exp) % 10]++; 
+  
+    
+    for (i = 1; i < 10; i++) 
+        cont[i] += cont[i - 1]; 
+  
+    
+    for (i = n - 1; i >= 0; i--) { 
+        saida[cont[(registros[i].getCasos() / exp) % 10] - 1] = registros[i]; 
+        cont[(registros[i].getCasos() /exp) % 10]--; 
+    } 
+  
+    
+    for (i = 0; i < n; i++) 
+        registros[i] = saida[i]; 
+} 
+  
+
+void Ordenadores::radixsort(Registro *registros, int n) 
+{ 
+    
+    int m = getMax(registros, n); 
+  
+    
+    for (int exp = 1; m / exp > 0; exp *= 10) 
+        countSort(registros, n, exp); 
+} 
+

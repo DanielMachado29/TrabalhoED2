@@ -13,7 +13,7 @@ Registro::Registro(){
     mortes=-1;
 }
 
-Registro::Registro(string dataCompleta, string estado, string cidade, int codigoCidade, int casos, int mortes){
+Registro::Registro(string dataCompleta, string estado, string cidade, int codigoCidade, int casos ,int mortes){
     this->dataCompleta = dataCompleta;
     this->estado = estado;
     this->cidade = cidade;

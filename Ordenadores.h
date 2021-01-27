@@ -14,6 +14,10 @@ class Ordenadores
         void intercala(Registro* registros,int inicio, int meio, int fim);
         void heapSort(Registro *registros , int n);
         void heapify(Registro *registros , int n, int i);
+        void quickSort(Registro *registros,int inicio,int fim);
+        int getMax(Registro *registros, int n);
+        void countSort(Registro *registros, int n, int exp);
+        void radixsort(Registro *registros, int n);
 
         
         unsigned long int getQuantidadeTrocas(){

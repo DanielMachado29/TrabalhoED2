@@ -10,13 +10,15 @@
 #include <string.h>
 #include "Ordenadores.h"
 #define TAMANHOMAX 1431490
+#define NOMEARQUIVODATASET "brazil_covid19_cities.csv"
 
 using namespace std;
 using namespace std::chrono;
 
-void leArquivo(Registro *r , int N)
+void leArquivo(Registro *r , int N , string nomeArquivo)
 {
-    ifstream arq("brazil_covid19_cities.csv");
+
+    ifstream arq(nomeArquivo);
     if (!arq.is_open())
     {
         cout << "Problema ao abrir o Arquivo!" << endl;
@@ -54,53 +56,96 @@ void leArquivo(Registro *r , int N)
         cont++;
         
     }
-    cout << "Arquivo com "<< cont << " registros lido com sucesso!" << endl;
+    cout << "Arquivo " << nomeArquivo<< " com "<<cont << " registros lido com sucesso!" << endl;
     arq.close();
 }
+
+void transformaCasosAcumuladosEmCasosDiarios(Registro *registros , int N){
+    
+    for(int i=1 ; i<N ; i++){
+        if(registros[i].getCidade() == registros[i-1].getCidade())
+            registros[i].setCasos(registros[i].getCasos() - registros[i-1].getCasos());
+    }
+    
+}
               
-void escreveArquivoSaida(Registro *r, int size)
+void escreveArquivoSaida(Registro *r, int size,string nomeSaidaArquivo)
 {
-   ofstream arq("brazil_covid19_cities_processado.csv");
+   ofstream arq(nomeSaidaArquivo);
    cout<<"Escrevendo arquivo de saida..."<<endl;
+    arq << "data,estado,nomeCidade,codigo,casos,mortes" << endl;
     for(int i = 1; i <= size; i++)
     {
-        arq << r[i].getDataCompleta() << " " << r[i].getEstado()<<" " <<r[i].getCidade() <<endl;
+        arq << r[i].getDataCompleta() << "," << r[i].getEstado()<<"," <<r[i].getCidade() <<","<<r[i].getCodigoCidade() <<
+        "," <<r[i].getCasos()<<"," <<r[i].getMortes()<<endl;
     }
-
     arq.close(); 
 }
 
 
 
-void ordenandoComHeapSort(Registro *registros , int N){
-    Ordenadores *ord = new Ordenadores();
-    high_resolution_clock::time_point inicio = high_resolution_clock::now();
-    leArquivo(registros,N);
-    cout<<"-----------------------------------------------"<<endl;
-    ord->heapSort(registros, N);
-    high_resolution_clock::time_point fim = high_resolution_clock::now();
-    //printArray(registros,N);
-    escreveArquivoSaida(registros,N);
-    cout<<"Fim da ordenacao com HeapSort"<<endl;
-    cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
+// void ordenandoComHeapSort(Registro *registros , int N){
+//     Ordenadores *ord = new Ordenadores();
+//     high_resolution_clock::time_point inicio = high_resolution_clock::now();
+//     leArquivo(registros,N,NOMEARQUIVODATASET);
+//     cout<<"-----------------------------------------------"<<endl;
+//     ord->heapSort(registros, N);
+//     high_resolution_clock::time_point fim = high_resolution_clock::now();
+//     //printArray(registros,N);
+//     escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado.csv");
+//     cout<<"Fim da ordenacao com HeapSort"<<endl;
+//     cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
 
-}
+// }
 
 
 
 void ordenandoComMergeSort(Registro *registros , int N){
     Ordenadores *ord = new Ordenadores();
+    
+    leArquivo(registros,N,NOMEARQUIVODATASET);
+    cout<<"----------------------------------------------------------------------"<<endl;
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
-    leArquivo(registros,N);
-    cout<<"-----------------------------------------------"<<endl;
     ord->mergeSort(registros,0, N);
     high_resolution_clock::time_point fim = high_resolution_clock::now();
-    //printArray(registros,N);
-    escreveArquivoSaida(registros,N);
+    transformaCasosAcumuladosEmCasosDiarios(registros,N);
+    escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado.csv");
     cout<<"Fim da ordenacao com mergeSort"<<endl;
     cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
 
 }
+
+void ordenandoComQuickSort(Registro *registros , int N){
+    Ordenadores *ord = new Ordenadores();
+    leArquivo(registros,N,"brazil_covid19_cities_processado.csv");
+    cout<<"----------------------------------------------------------------------"<<endl;
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    ord->quickSort(registros,0,N);
+    high_resolution_clock::time_point fim = high_resolution_clock::now();
+    //printArray(registros,N);
+    escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado_ETAPA2TESTE_QUICK.csv");
+    cout<<"Fim da ordenacao com QuickSort"<<endl;
+    cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
+
+}
+void ordenandoComRadix(Registro *registros , int N){
+    Ordenadores *ord = new Ordenadores();
+    
+    leArquivo(registros,N,"brazil_covid19_cities_processado.csv");
+    cout<<"----------------------------------------------------------------------"<<endl;
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+    ord->radixsort(registros,N);
+    high_resolution_clock::time_point fim = high_resolution_clock::now();
+    //printArray(registros,N);
+    //escreveArquivoSaida(registros,N);
+    escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado_ETAPA2TESTE_RADIX.csv");
+    cout<<"Fim da ordenacao com RadixSort"<<endl;
+    cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
+
+}
+
+
+
 
 
 int main()
@@ -115,6 +160,7 @@ int main()
     //ordenandoComHeapSort(registros,tamanhoN[5]);
 
     ordenandoComMergeSort(registros,tamanhoN[5]);
+    ordenandoComQuickSort(registros,tamanhoN[5]);
 
     delete[] registros;
     
