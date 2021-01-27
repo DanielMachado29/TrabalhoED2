@@ -61,12 +61,13 @@ void leArquivo(Registro *r , int N , string nomeArquivo)
 }
 
 void transformaCasosAcumuladosEmCasosDiarios(Registro *registros , int N){
-    
+
     for(int i=1 ; i<N ; i++){
-        if(registros[i].getCidade() == registros[i-1].getCidade())
+         
+        if(registros[i].getCidade() == registros[i-1].getCidade()){
             registros[i].setCasos(registros[i].getCasos() - registros[i-1].getCasos());
+        } 
     }
-    
 }
               
 void escreveArquivoSaida(Registro *r, int size,string nomeSaidaArquivo)
@@ -111,6 +112,8 @@ void ordenandoComMergeSort(Registro *registros , int N){
     transformaCasosAcumuladosEmCasosDiarios(registros,N);
     escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado.csv");
     cout<<"Fim da ordenacao com mergeSort"<<endl;
+    cout<<"TESTE - Foram feitas: "<<ord->getQuantidadeComparacoes()<< " comparacoes , e " <<
+    ord->getQuantidadeTrocas()<< " trocas."<<endl;
     cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
 
 }
@@ -155,12 +158,12 @@ int main()
     // ./teste
 
     int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
-    Registro *registros = new Registro[tamanhoN[5]];
+    Registro *registros = new Registro[tamanhoN[4]];
 
     //ordenandoComHeapSort(registros,tamanhoN[5]);
 
-    ordenandoComMergeSort(registros,tamanhoN[5]);
-    ordenandoComQuickSort(registros,tamanhoN[5]);
+    ordenandoComMergeSort(registros,tamanhoN[4]);
+    ordenandoComQuickSort(registros,tamanhoN[4]);
 
     delete[] registros;
     
