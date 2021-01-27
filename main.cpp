@@ -93,7 +93,7 @@ void ordenandoComMergeSort(Registro *registros , int N){
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
     leArquivo(registros,N);
     cout<<"-----------------------------------------------"<<endl;
-    ord->mergeSort(registros,0, N-1);
+    ord->mergeSort(registros,0, N);
     high_resolution_clock::time_point fim = high_resolution_clock::now();
     //printArray(registros,N);
     escreveArquivoSaida(registros,N);
@@ -102,23 +102,6 @@ void ordenandoComMergeSort(Registro *registros , int N){
 
 }
 
-// void shellsort(Registro *r, int n)
-// {
-//     for(int h = n/2 ; h > 0; h--)
-//     {
-
-//         for(int i = h; i < n; i = i+h)
-//         {
-//             int temp = r[i].getCasos();
-//                        int j;
-//             for(j=i; j>=h && r[j-h].getCasos() > temp; j-=h )
-//             {
-//                 swap(r[j], r[j-h]);
-//             }
-//              temp = r[j].getCasos();
-//         }
-//     }
-// }
 
 int main()
 {

@@ -14,54 +14,78 @@ void Ordenadores::intercala(Registro* registros,int inicio, int meio, int fim)
 {
     //int numComparacao, numTroca;//
     int i,j,k;
-    int n1 = meio-inicio+1; //tamanho do vetor temporario L
-    int n2 = fim - meio; //tamanho do vetor temporario R
+    int tamVetL = meio-inicio+1; //tamanho do vetor temporario L
+    int tamVetR = fim - meio; //tamanho do vetor temporario R
 
     // cria vetores temporarios
-    Registro * L = new Registro[n1];
-    Registro * R = new Registro[n2];
+    Registro * L = new Registro[tamVetL];
+    Registro * R = new Registro[tamVetR];
 
 
     //copia os dados para as arrays L e R
-    for (i = 0; i < n1; i++)
+    for (i = 0; i < tamVetL; i++)
         L[i] = registros[inicio + i];
-    for (j = 0; j < n2; j++)
+    for (j = 0; j < tamVetR; j++)
         R[j] = registros[meio + 1 + j];
 
     //Junta os vetores temporarios no vetor principal
     i = 0; // index inicial para a primeira subarray
     j = 0; // index inicial para a segunda subarray
     k = inicio; // index inicial para a merge subarray
-    while (i < n1 && j < n2)
+
+    while (i < tamVetL && j < tamVetR)
     {
-        //numComparacao++;
-        if (L[i].getCidade() <= R[j].getCidade())
+        // se cidade de L vier antes da cidade de R
+        if (L[i].getEstado() < R[j].getEstado())
         {
-            //numTroca++;;
             registros[k] = L[i];
             i++;
+            k++;
+            continue;
         }
-        else
+        if (L[i].getEstado() == R[j].getEstado())
         {
-            //numTroca++;
+            if(L[i].getCidade() < R[j].getCidade()){
+                registros[k] = L[i];
+                i++;
+                k++;
+                continue;
+            }
+            
+        }
+        if (L[i].getEstado() == R[j].getEstado() && L[i].getCidade() == R[j].getCidade())
+        {
+            if(L[i].getDataCompleta() < R[j].getDataCompleta()){
+                registros[k] = L[i];
+                i++;
+                k++;
+                continue;
+            }
+            
+        }
+        //else
+        //{
+            
             registros[k] = R[j];
             j++;
-        }
+        //}
+
+
         k++;
     }
 
     // Copia os elementos restantes de L[ ]
-    while (i < n1)
+    while (i < tamVetL)
     {
-        //numTroca++;
+        
         registros[k] = L[i];
         i++;
         k++;
     }
     // Copia os elementos restantes de R[ ]
-    while (j < n2)
+    while (j < tamVetR)
     {
-        //numTroca++;
+        
         registros[k] = R[j];
         j++;
         k++;
@@ -70,17 +94,17 @@ void Ordenadores::intercala(Registro* registros,int inicio, int meio, int fim)
     delete [] R;
 }
 
-void Ordenadores::mergeSort(Registro* registros, int inicio, int fim)
+void Ordenadores::mergeSort(Registro* registros, int indexInicio, int indexFim)
 {
-    int meio;
-
-    if(inicio < fim)
+    
+    if(indexFim > indexInicio)
     {
-        meio = (inicio + fim)/2;
-        mergeSort(registros, inicio, meio);
-        mergeSort(registros, meio+1, fim );
-        intercala(registros, inicio, meio, fim);
+        int meio = (indexInicio + indexFim)/2;      // pega o meio como parametro de index para as duas metades 
+        mergeSort(registros, indexInicio, meio);   // na primeira metade ele vira o indexFim
+        mergeSort(registros, meio+1, indexFim );  //na segunda metade ele+1 vira o indexInicio
+        intercala(registros, indexInicio, meio, indexFim);
     }
+    else return;
 
 }
 // Funcao serve para Heapifyzar uma subarvore com raiz que tem indice i
