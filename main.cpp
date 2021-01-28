@@ -29,7 +29,7 @@ void leArquivo(Registro *r , int N , string nomeArquivo)
     int codigoCidade;
     string linha, stringTemporaria1, stringTemporaria2, stringTemporaria3;
     int cont=0;
-    getline(arq,linha);
+    getline(arq,linha); //pula primeira linha
     while (getline(arq, linha))
     {
 
@@ -50,7 +50,6 @@ void leArquivo(Registro *r , int N , string nomeArquivo)
         istringstream(stringTemporaria3) >> mortes;
         r[cont].setMortes(mortes);
 
-        //r[cont].imprime();
         if(cont>N)
         break;
         cont++;
@@ -131,18 +130,16 @@ void ordenandoComQuickSort(Registro *registros , int N){
     cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
 
 }
-void ordenandoComRadix(Registro *registros , int N){
+void ordenandoComShellSort(Registro *registros , int N){
     Ordenadores *ord = new Ordenadores();
     
     leArquivo(registros,N,"brazil_covid19_cities_processado.csv");
     cout<<"----------------------------------------------------------------------"<<endl;
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
-    ord->radixsort(registros,N);
+    ord->shellSort(registros,N);
     high_resolution_clock::time_point fim = high_resolution_clock::now();
-    //printArray(registros,N);
-    //escreveArquivoSaida(registros,N);
-    escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado_ETAPA2TESTE_RADIX.csv");
-    cout<<"Fim da ordenacao com RadixSort"<<endl;
+    escreveArquivoSaida(registros,N,"brazil_covid19_cities_processado_ETAPA2TESTE_SHELL.csv");
+    cout<<"Fim da ordenacao com shellSort"<<endl;
     cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
 
 }
@@ -158,12 +155,12 @@ int main()
     // ./teste
 
     int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
-    Registro *registros = new Registro[tamanhoN[4]];
+    Registro *registros = new Registro[tamanhoN[5]];
 
     //ordenandoComHeapSort(registros,tamanhoN[5]);
 
-    ordenandoComMergeSort(registros,tamanhoN[4]);
-    ordenandoComQuickSort(registros,tamanhoN[4]);
+    //ordenandoComMergeSort(registros,tamanhoN[5]);
+    ordenandoComShellSort(registros,tamanhoN[5]);
 
     delete[] registros;
     

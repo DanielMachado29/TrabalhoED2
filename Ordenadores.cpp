@@ -227,42 +227,21 @@ void Ordenadores::quickSort(Registro *registros, int inicio, int fim)
         quickSort(registros, i, fim);
 }
 
-int Ordenadores::getMax(Registro *registros, int n)
+void Ordenadores::shellSort(Registro *registros, int n)
 {
-    int mx = registros[0].getCasos();
-    for (int i = 1; i < n; i++)
-        if (registros[i].getCasos() > mx)
-            mx = registros[i].getCasos();
-    return mx;
-}
-
-void Ordenadores::countSort(Registro *registros, int n, int exp)
-{
-
-    int i, cont[10] = {0};
-    Registro *saida = new Registro[n];
-
-    for (i = 0; i < n; i++)
-        cont[(registros[i].getCasos() / exp) % 10]++;
-
-    for (i = 1; i < 10; i++)
-        cont[i] += cont[i - 1];
-
-    for (i = n - 1; i >= 0; i--)
+    for (int zap = n/2; zap > 0; zap /= 2)
     {
-        saida[cont[(registros[i].getCasos() / exp) % 10] - 1] = registros[i];
-        cont[(registros[i].getCasos() / exp) % 10]--;
+        for (int i = zap; i < n; i += 1)
+        {
+            quantidadeTrocas++;
+            Registro temp = registros[i];
+            int j;
+            for (j = i; j >= zap && registros[j - zap].getCasos() > temp.getCasos(); j -= zap){
+                quantidadeComparacoes++;
+                quantidadeTrocas++;
+                registros[j] = registros[j - zap];
+            }
+            registros[j] = temp;
+        }
     }
-
-    for (i = 0; i < n; i++)
-        registros[i] = saida[i];
-}
-
-void Ordenadores::radixsort(Registro *registros, int n)
-{
-
-    int m = getMax(registros, n);
-
-    for (int exp = 1; m / exp > 0; exp *= 10)
-        countSort(registros, n, exp);
 }
