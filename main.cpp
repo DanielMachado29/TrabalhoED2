@@ -143,8 +143,64 @@ void ordenandoComShellSort(Registro *registros , int N){
     cout<< duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
 
 }
+void OrdenadoresMenu(){
+
+    int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
+    Registro *registros = new Registro[tamanhoN[5]];
+
+    cout<<"Escolha o Tamanho do Registro:"<<endl;
+    cout<<"*10.000"<<endl;
+    cout<<"*50.000"<<endl;
+    cout<<"*100.000"<<endl;
+    cout<<"*500.000"<<endl;
+    cout<<"*1.000.000"<<endl;
 
 
+
+
+}
+
+void menu(){
+
+
+    int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
+    Registro *registros = new Registro[tamanhoN[5]];
+
+    int men;
+    cout<<"===============Menu==============="<<endl;
+    cout<<"[1]->Pré-processamento dos dados"<<endl;
+    cout<<"[2]->Modulo de Teste"<<endl;
+    cout<<"[3]->Finzaliza execucao"<<endl;
+    cin>>men;
+
+    if(men==1){
+        //Fazer o pre processamento atraves do MergeSort
+        ordenandoComMergeSort(registros,tamanhoN[5]);
+        menu();
+    }
+    if(men==2){
+        cout<<"===============Modulo de Teste==============="<<endl;
+        cout<<"[1]->Acesso ao Algoritmos de Ordenação(MergeSort/QuickSort/ShellSort)"<<endl;
+        cout<<"[2]->Saida no Console do Teste N=10"<<endl;
+        cout<<"[3]->Saida em um Arquivo Txt do Teste N=100"<<endl;
+        cin>>men;
+
+        if(men==1){
+            OrdenadoresMenu();
+
+        }
+         if(men==2){
+            cout<<"IR AQUI A SAIDA NO CONSOLE"<<endl;
+
+        }
+         if(men==3){
+            cout<<"IR AQUI A SAIDA EM TXT"<<endl;
+
+        }
+    }
+
+    
+}
 
 
 
@@ -154,16 +210,16 @@ int main()
     //  g++ -o teste -O3 *.cpp
     // ./teste
 
-    int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
-    Registro *registros = new Registro[tamanhoN[5]];
+    //int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
+    //Registro *registros = new Registro[tamanhoN[5]];
 
     //ordenandoComHeapSort(registros,tamanhoN[5]);
 
     //ordenandoComMergeSort(registros,tamanhoN[5]);
-    ordenandoComShellSort(registros,tamanhoN[5]);
+    //ordenandoComShellSort(registros,tamanhoN[5]);
 
-    delete[] registros;
-    
+    //delete[] registros;
+    menu();
 
     return 0;
 }
