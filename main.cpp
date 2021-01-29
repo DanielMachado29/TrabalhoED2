@@ -15,6 +15,35 @@
 using namespace std;
 using namespace std::chrono;
 
+string TiraAcento(string paravla)
+{
+    for(int i=0; i<paravla.length(); i++)
+    {
+        if(int(paravla[i]) >= 192 && int(paravla[i]) <= 197)
+            paravla[i] = 'A';
+        if(int(paravla[i]) >= 224 && int(paravla[i]) <= 229)
+            paravla[i] = 'a';
+        if(int(paravla[i]) >= 200 && int(paravla[i]) <= 203)
+            paravla[i] = 'E';
+        if(int(paravla[i]) >= 232 && int(paravla[i]) <= 235)
+            paravla[i] = 'e';
+        if(int(paravla[i]) >= 204 && int(paravla[i]) <= 207)
+            paravla[i] = 'I';
+        if(int(paravla[i]) >= 236 && int(paravla[i]) <= 239)
+            paravla[i] = 'i';
+        if(int(paravla[i]) >= 210 && int(paravla[i]) <= 214)
+            paravla[i] = 'O';
+        if(int(paravla[i]) >= 242 && int(paravla[i]) <= 246)
+            paravla[i] = 'o';
+        if(int(paravla[i]) >= 217 && int(paravla[i]) <= 220)
+            paravla[i] = 'U';
+        if(int(paravla[i]) >= 249 && int(paravla[i]) <= 252)
+            paravla[i] = 'u';
+        if(int(paravla[i]) == 135)
+            paravla[i] = 'c';
+    }
+    return paravla;
+}
 void leArquivo(Registro *r , int N , string nomeArquivo)
 {
 
@@ -134,6 +163,7 @@ void ordenandoComMergeSort(Registro *registros , int N){
     cout<<"Media de Tempo em 5 execs: "<<mediaTempo/5<<endl;
     cout<<"Media de Comparacao em 5 execs: "<<mediaComparacao/5<<endl;
     cout<<"Media de Trocas em 5 execs: "<<mediaTrocas/5<<endl;
+    escreveArquivoSaida(registros,N,"brazil_covid19_cities_processados");
     
 }
 
@@ -204,7 +234,7 @@ void ordenandoComShellSort(Registro *registros , int N){
         cout<<"----------------------------------------------------------------------"<<endl;
 
     }
-  
+    
     cout<<"Media de Tempo em 5 execs: "<<mediaTempo/5<<endl;
     cout<<"Media de Comparacao em 5 execs: "<<mediaComparacao/5<<endl;
     cout<<"Media de Trocas em 5 execs: "<<mediaTrocas/5<<endl;
@@ -283,10 +313,10 @@ int main()
     int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
     Registro *registros = new Registro[tamanhoN[5]];
 
-    //ordenandoComMergeSort(registros,tamanhoN[0]);
+    ordenandoComMergeSort(registros,tamanhoN[0]);
 
-    ordenandoComQuickSort(registros,tamanhoN[0]);
-    ordenandoComShellSort(registros,tamanhoN[5]);
+    //ordenandoComQuickSort(registros,tamanhoN[0]);
+   // ordenandoComShellSort(registros,tamanhoN[5]);
 
     //delete[] registros;
     //menu();
