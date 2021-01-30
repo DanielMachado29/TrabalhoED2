@@ -12,6 +12,10 @@
         "chrono": "cpp",
         "initializer_list": "cpp",
         "utility": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "climits": "cpp",
+        "algorithm": "cpp",
+        "istream": "cpp",
+        "streambuf": "cpp"
     }
 }

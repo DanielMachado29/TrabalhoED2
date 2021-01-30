@@ -1,7 +1,8 @@
 #include "Ordenadores.h"
-using namespace std;
 #include <random>
 #include <chrono>
+
+using namespace std;
 Ordenadores::Ordenadores()
 {
     quantidadeComparacoes = 0;
@@ -229,14 +230,15 @@ void Ordenadores::quickSort(Registro *registros, int inicio, int fim)
 
 void Ordenadores::shellSort(Registro *registros, int n)
 {
-    for (int zap = n/2; zap > 0; zap /= 2)
+    for (int zap = n / 2; zap > 0; zap /= 2)
     {
         for (int i = zap; i < n; i += 1)
         {
             quantidadeTrocas++;
             Registro temp = registros[i];
             int j;
-            for (j = i; j >= zap && registros[j - zap].getCasos() > temp.getCasos(); j -= zap){
+            for (j = i; j >= zap && registros[j - zap].getCasos() > temp.getCasos(); j -= zap)
+            {
                 quantidadeComparacoes++;
                 quantidadeTrocas++;
                 registros[j] = registros[j - zap];

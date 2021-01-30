@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <sstream>
+#include "Ordenadores.h"
 
 using namespace std;
 
@@ -11,8 +12,8 @@ class Registro
 {
 private:
     string dataCompleta, estado, cidade;
-    //int dia, mes, ano ;
     int casos, mortes, codigoCidade;
+
 public:
     Registro(string dataCompleta, string estado, string cidade, int codigoCidade, int casos, int mortes);
     Registro();
@@ -31,4 +32,8 @@ public:
     int getMortes();
     void imprime();
     void imprimeCidade(Registro *r, int size);
+    void transformaCasosAcumuladosEmCasosDiarios(Registro *registros, int N);
+    void escreveArquivoSaidaCsv(Registro *r, int size, string nomeSaidaArquivo);
+    void leArquivo(Registro *r, int N, string nomeArquivo);
+    void preProcessamentoComMergeSort(Registro *registros, int N);
 };

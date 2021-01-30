@@ -6,3 +6,28 @@
 	<cstdlib>
 	<chrono>
 
+1612020362 source:e:\git\trabalhoed2\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<chrono>
+	<sstream>
+	<algorithm>
+	<climits>
+	<stdio.h>
+	<string.h>
+	"Ordenadores.h"
+
+1612020361 e:\git\trabalhoed2\ordenadores.h
+	"Registro.h"
+	<chrono>
+
+1612020361 e:\git\trabalhoed2\registro.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<chrono>
+	<sstream>
+
