@@ -133,36 +133,36 @@ void ordenandoComMergeSort(Registro *registros , int N){
     Ordenadores *ord = new Ordenadores();
     
     leArquivo(registros,N,NOMEARQUIVODATASET);
-    cout<<"----------------------------------------------------------------------"<<endl;
-     int mediaComparacao=0;
-     int mediaTrocas=0;
-     double mediaTempo=0;     
+    // cout<<"----------------------------------------------------------------------"<<endl;
+    //  int mediaComparacao=0;
+    //  int mediaTrocas=0;
+    //  double mediaTempo=0;     
 
-    //5 = M 
-    for(int i=0;i<5;i++){
-        cout<<"----------------------------------------------------------------------"<<endl;
+    // //5 = M 
+    // for(int i=0;i<5;i++){
+    //     cout<<"----------------------------------------------------------------------"<<endl;
 
         high_resolution_clock::time_point inicio = high_resolution_clock::now();
         ord->mergeSort(registros,0, N);
         high_resolution_clock::time_point fim = high_resolution_clock::now();
-        transformaCasosAcumuladosEmCasosDiarios(registros,N);
+        // transformaCasosAcumuladosEmCasosDiarios(registros,N);
 
 
-        cout<<"Exececucao: "<<i<<endl;
-        cout<<"----------------------------------------------------------------------"<<endl;
-        mediaTempo=mediaTempo+(duration_cast<duration<double>>(fim-inicio).count());
+        // cout<<"Exececucao: "<<i<<endl;
+        // cout<<"----------------------------------------------------------------------"<<endl;
+        // mediaTempo=mediaTempo+(duration_cast<duration<double>>(fim-inicio).count());
         cout<<"Tempo:" <<duration_cast<duration<double>>(fim-inicio).count()<<"s"<<endl;
-        mediaComparacao= mediaComparacao + ord->getQuantidadeComparacoes();;
-        cout<<"Foram feitas:"<<ord->getQuantidadeComparacoes()<< " comparacoes "<<endl;
-        cout<<"Foram feitas:"<<ord->getQuantidadeTrocas()<< " trocas"<<endl;
-        mediaTrocas= mediaTrocas + ord->getQuantidadeTrocas();
-        cout<<"----------------------------------------------------------------------"<<endl;
+    //     mediaComparacao= mediaComparacao + ord->getQuantidadeComparacoes();;
+    //     cout<<"Foram feitas:"<<ord->getQuantidadeComparacoes()<< " comparacoes "<<endl;
+    //     cout<<"Foram feitas:"<<ord->getQuantidadeTrocas()<< " trocas"<<endl;
+    //     mediaTrocas= mediaTrocas + ord->getQuantidadeTrocas();
+    //     cout<<"----------------------------------------------------------------------"<<endl;
 
-    }
+    // }
   
-    cout<<"Media de Tempo em 5 execs: "<<mediaTempo/5<<endl;
-    cout<<"Media de Comparacao em 5 execs: "<<mediaComparacao/5<<endl;
-    cout<<"Media de Trocas em 5 execs: "<<mediaTrocas/5<<endl;
+    // cout<<"Media de Tempo em 5 execs: "<<mediaTempo/5<<endl;
+    // cout<<"Media de Comparacao em 5 execs: "<<mediaComparacao/5<<endl;
+    // cout<<"Media de Trocas em 5 execs: "<<mediaTrocas/5<<endl;
     escreveArquivoSaida(registros,N,"brazil_covid19_cities_processados");
     
 }
@@ -313,7 +313,7 @@ int main()
     int tamanhoN[] = {10000,50000,100000,500000,1000000,TAMANHOMAX};
     Registro *registros = new Registro[tamanhoN[5]];
 
-    ordenandoComMergeSort(registros,tamanhoN[0]);
+    ordenandoComMergeSort(registros,tamanhoN[5]);
 
     //ordenandoComQuickSort(registros,tamanhoN[0]);
    // ordenandoComShellSort(registros,tamanhoN[5]);
