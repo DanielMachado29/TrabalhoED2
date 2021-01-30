@@ -13,9 +13,9 @@ class Registro
 private:
     string dataCompleta, estado, cidade;
     int casos, mortes, codigoCidade;
+    bool visitado;
 
 public:
-    Registro(string dataCompleta, string estado, string cidade, int codigoCidade, int casos, int mortes);
     Registro();
     ~Registro();
     void setDataCompleta(string dataCompleta);
@@ -30,10 +30,9 @@ public:
     int getCodigoCidade();
     int getCasos();
     int getMortes();
-    void imprime();
-    void imprimeCidade(Registro *r, int size);
     void transformaCasosAcumuladosEmCasosDiarios(Registro *registros, int N);
     void escreveArquivoSaidaCsv(Registro *r, int size, string nomeSaidaArquivo);
     void leArquivo(Registro *r, int N, string nomeArquivo);
+    void selecionandoRegistrosAleatorios(Registro *registroPrincipal, int N);
     void preProcessamentoComMergeSort(Registro *registros, int N);
 };

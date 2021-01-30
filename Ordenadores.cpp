@@ -11,7 +11,7 @@ Ordenadores::Ordenadores()
 
 Ordenadores::~Ordenadores() {}
 
-void Ordenadores::intercala(Registro *registros, int inicio, int meio, int fim)
+void Ordenadores::intercalaPreProcessamento(Registro *registros, int inicio, int meio, int fim)
 {
 
     int i, j, k;
@@ -93,6 +93,81 @@ void Ordenadores::intercala(Registro *registros, int inicio, int meio, int fim)
     delete[] R;
 }
 
+void Ordenadores::mergeSortPreProcessamento(Registro *registros, int indexInicio, int indexFim)
+{
+
+    if (indexFim > indexInicio)
+    {
+        int meio = (indexInicio + indexFim) / 2;  // pega o meio como parametro de index para as duas metades
+        mergeSortPreProcessamento(registros, indexInicio, meio);  // na primeira metade ele vira o indexFim
+        mergeSortPreProcessamento(registros, meio + 1, indexFim); //na segunda metade ele+1 vira o indexInicio
+        intercalaPreProcessamento(registros, indexInicio, meio, indexFim);
+    }
+    else
+        return;
+}
+
+void Ordenadores::intercala(Registro *registros, int inicio, int meio, int fim)
+{
+
+    int i, j, k;
+    //tamanho do registro temp
+    int tamVetL = meio - inicio + 1;
+    int tamVetR = fim - meio;
+
+    Registro *L = new Registro[tamVetL];
+    Registro *R = new Registro[tamVetR];
+
+    //copia para os vetores de regristro temp
+    for (i = 0; i < tamVetL; i++)
+        L[i] = registros[inicio + i];
+    for (j = 0; j < tamVetR; j++)
+        R[j] = registros[meio + 1 + j];
+
+    //Junta os vetores temporarios no vetor principal
+    i = 0;
+    j = 0;
+    k = inicio; // index  p fazer merge
+
+    while (i < tamVetL && j < tamVetR)
+    {
+        // se estado de L vier antes do estado de R
+        quantidadeComparacoes++;
+        if (L[i].getCasos() < R[j].getCasos())
+        {
+            quantidadeTrocas++;
+            registros[k] = L[i];
+            i++;
+            k++;
+            continue;
+        }
+        else{
+            quantidadeTrocas++;
+            registros[k] = R[j];
+            j++;
+            k++;
+        }
+        
+    }
+
+    while (i < tamVetL)
+    {
+        quantidadeTrocas++;
+        registros[k] = L[i];
+        i++;
+        k++;
+    }
+    while (j < tamVetR)
+    {
+        quantidadeTrocas++;
+        registros[k] = R[j];
+        j++;
+        k++;
+    }
+    delete[] L;
+    delete[] R;
+}
+
 void Ordenadores::mergeSort(Registro *registros, int indexInicio, int indexFim)
 {
 
@@ -105,47 +180,6 @@ void Ordenadores::mergeSort(Registro *registros, int indexInicio, int indexFim)
     }
     else
         return;
-}
-// Funcao serve para Heapifyzar uma subarvore com raiz que tem indice i
-// obs : i eh um indice , n eh o tamanho da heap
-void Ordenadores::heapify(Registro *registros, int n, int i)
-{
-    int maior = i;     // Maior eh iniciado como raiz
-    int l = 2 * i + 1; // left = 2*i + 1
-    int r = 2 * i + 2; // right = 2*i + 2
-
-    if (l < n && registros[l].getEstado() > registros[maior].getEstado())
-        maior = l;
-
-    if (r < n && registros[r].getEstado() > registros[maior].getEstado())
-        maior = r;
-
-    // caso a maior nao seja igual a raiz mais por ter sido trocada
-    if (maior != i)
-    {
-        swap(registros[i], registros[maior]);
-
-        // vai descendo
-        heapify(registros, n, maior);
-    }
-}
-
-// Funcao principal para a heapSort
-void Ordenadores::heapSort(Registro *registros, int n)
-{
-    // Constroi a heap maxima dentro do array
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(registros, n, i);
-
-    // Vai ordenando um por um e parando de verificar oq ja esta ordenado
-    for (int i = n - 1; i > 0; i--)
-    {
-        // manda a raiz atual que eh o maior valor para o final
-        swap(registros[0], registros[i]);
-
-        // rearranja a heap
-        heapify(registros, i, 0);
-    }
 }
 
 void Ordenadores::quickSort(Registro *registros, int inicio, int fim)

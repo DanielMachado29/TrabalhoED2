@@ -9,10 +9,10 @@ class Ordenadores
 public:
     Ordenadores();
     ~Ordenadores();
+    void mergeSortPreProcessamento(Registro *registros, int inicio, int fim);
+    void intercalaPreProcessamento(Registro *registros, int inicio, int meio, int fim);
     void mergeSort(Registro *registros, int inicio, int fim);
     void intercala(Registro *registros, int inicio, int meio, int fim);
-    void heapSort(Registro *registros, int n);
-    void heapify(Registro *registros, int n, int i);
     void quickSort(Registro *registros, int inicio, int fim);
     void shellSort(Registro *registros, int n);
 

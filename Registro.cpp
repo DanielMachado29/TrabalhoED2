@@ -19,26 +19,12 @@ Registro::Registro()
     codigoCidade = -1;
     casos = -1;
     mortes = -1;
-}
-
-Registro::Registro(string dataCompleta, string estado, string cidade, int codigoCidade, int casos, int mortes)
-{
-    this->dataCompleta = dataCompleta;
-    this->estado = estado;
-    this->cidade = cidade;
-    this->codigoCidade = codigoCidade;
-    this->casos = casos;
-    this->mortes = mortes;
+    visitado = false;
 }
 
 Registro::~Registro() {}
 
-void Registro::imprimeCidade(Registro *r, int size)
-{
-    for (int i = 0; i < size; i++)
-        cout << r[i].getCidade() << " ";
-    cout << endl;
-}
+
 
 void Registro::transformaCasosAcumuladosEmCasosDiarios(Registro *registros, int N)
 {
@@ -112,6 +98,16 @@ void Registro::leArquivo(Registro *r, int N, string nomeArquivo)
     arq.close();
 }
 
+void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, int N)
+{
+    // Registro *registrosAux = new Registro[N];
+    // for(int i=0 ; i<N ; i++)
+    //     registrosAux[i]=registroPrincipal[i];
+
+
+}
+
+
 void Registro::preProcessamentoComMergeSort(Registro *registros, int N)
 {
     Ordenadores *ord = new Ordenadores();
@@ -120,10 +116,7 @@ void Registro::preProcessamentoComMergeSort(Registro *registros, int N)
     cin >> nomeArquivoEntrada;
     registros->leArquivo(registros, N, nomeArquivoEntrada);
     cout << "Realizando Pre-Processamento..." << endl;
-    high_resolution_clock::time_point inicio = high_resolution_clock::now();
-    ord->mergeSort(registros, 0, N);
-    high_resolution_clock::time_point fim = high_resolution_clock::now();
-    cout << "Tempo:" << duration_cast<duration<double>>(fim - inicio).count() << "s" << endl;
+    ord->mergeSortPreProcessamento(registros, 0, N);
     registros->transformaCasosAcumuladosEmCasosDiarios(registros, N);
     registros->escreveArquivoSaidaCsv(registros, N, "brazil_covid19_cities_processados.csv");
 }
@@ -151,10 +144,6 @@ void Registro::setCasos(int casos)
 void Registro::setMortes(int mortes)
 {
     this->mortes = mortes;
-}
-void Registro::imprime()
-{
-    cout << ' ' << dataCompleta << ' ' << estado << ' ' << cidade << ' ' << codigoCidade << ' ' << casos << ' ' << mortes << endl;
 }
 
 string Registro::getDataCompleta()

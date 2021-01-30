@@ -17,12 +17,12 @@ using namespace std;
 using namespace std::chrono;
 
 
-//Mudar para mergeSort 2 (Por Casos) e mudar o nome do arquivo
+
 void ordenandoComMergeSort(Registro *registros, int N)
 {
     Ordenadores *ord = new Ordenadores();
 
-    //leArquivo(registros,N,NOMEARQUIVODATASET);
+    registros->leArquivo(registros,N,"brazil_covid19_cities_processados.csv");
     // cout<<"----------------------------------------------------------------------"<<endl;
     //  int mediaComparacao=0;
     //  int mediaTrocas=0;
@@ -33,7 +33,7 @@ void ordenandoComMergeSort(Registro *registros, int N)
     //     cout<<"----------------------------------------------------------------------"<<endl;
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
-    ord->mergeSort(registros, 0, N);
+    //ord->mergeSort(registros, 0, N);
     high_resolution_clock::time_point fim = high_resolution_clock::now();
     // transformaCasosAcumuladosEmCasosDiarios(registros,N);
 
@@ -105,7 +105,7 @@ void ordenandoComShellSort(Registro *registros, int N)
         cout << "----------------------------------------------------------------------" << endl;
 
         high_resolution_clock::time_point inicio = high_resolution_clock::now();
-        ord->mergeSort(registros, 0, N);
+        ord->shellSort(registros, N);
         high_resolution_clock::time_point fim = high_resolution_clock::now();
 
         cout << "Exececucao: " << i << endl;
@@ -148,7 +148,8 @@ void menu()
     cout << "===============Menu===============" << endl;
     cout << "[1]->Pre-processamento dos dados" << endl;
     cout << "[2]->Modulo de Teste" << endl;
-    cout << "[3]->Finzaliza execucao" << endl;
+    cout << "[3]->Etapa 2 do Trab -> trocar nome dps" << endl;
+    cout << "[4]->Finzaliza execucao" << endl;
     cin >> men;
 
     if (men == 1)
@@ -160,25 +161,29 @@ void menu()
     if (men == 2)
     {
         cout << "===============Modulo de Teste===============" << endl;
-        cout << "[1]->Acesso ao Algoritmos de Ordenação(MergeSort/QuickSort/ShellSort)" << endl;
-        cout << "[2]->Saida no Console do Teste N=10" << endl;
-        cout << "[3]->Saida em um Arquivo Txt do Teste N=100" << endl;
+        cout << "[1]->Pre-processamento dos dados" << endl;
+        cout << "[2]->Importação de N registros aleatórios" << endl;
+        cout << "[3]->Cada um dos algoritmos de ordenação" << endl;
         cin >> men;
 
         if (men == 1)
         {
-            OrdenadoresMenu();
+            cout << "[1]->Saida no Console do Teste N=10" << endl;
+            cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
         }
         if (men == 2)
         {
-            cout << "IR AQUI A SAIDA NO CONSOLE" << endl;
+            cout << "[1]->Saida no Console do Teste N=10" << endl;
+            cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
         }
         if (men == 3)
         {
-            cout << "IR AQUI A SAIDA EM TXT" << endl;
+            cout << "[1]->Saida no Console do Teste N=10" << endl;
+            cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
         }
     }
 }
+
 
 int main()
 {
