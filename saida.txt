@@ -1,0 +1,315 @@
+Ordenando com Merge sort : 
+Exececucao 1 : 
+Tempo: 0.0159292s.   Comparacoes: 119166.   Trocas: 133631.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.0129646s.   Comparacoes: 190979.   Trocas: 267262.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.0129656s.   Comparacoes: 262792.   Trocas: 400893.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.0139906s.   Comparacoes: 334605.   Trocas: 534524.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.0129387s.   Comparacoes: 406418.   Trocas: 668155.   
+ORDENANDO PARA 10000 REGISTROS
+
+Media de Tempo em 5 execs: 0.0137577
+Media de Comparacao em 5 execs: 262792
+Media de Trocas em 5 execs: 400893
+---------------------------------------------------------------------------------------
+Ordenando com Quick sort : 
+Exececucao 1 : 
+Tempo: 0.0059859s.   Comparacoes: 90517.   Trocas: 60479.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.0059537s.   Comparacoes: 179289.   Trocas: 117442.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.0060145s.   Comparacoes: 268061.   Trocas: 174405.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.0055495s.   Comparacoes: 356833.   Trocas: 231368.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.0059321s.   Comparacoes: 445605.   Trocas: 288331.   
+ORDENANDO PARA 10000 REGISTROS
+
+Media de Tempo em 5 execs: 0.00588714
+Media de Comparacao em 5 execs: 268061
+Media de Trocas em 5 execs: 174405
+---------------------------------------------------------------------------------------
+Ordenando com Shell sort : 
+Exececucao 1 : 
+Tempo: 0.0069719s.   Comparacoes: 7328.   Trocas: 127333.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.0059934s.   Comparacoes: 7328.   Trocas: 247338.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.0059867s.   Comparacoes: 7328.   Trocas: 367343.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.0069793s.   Comparacoes: 7328.   Trocas: 487348.   
+ORDENANDO PARA 10000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.0059875s.   Comparacoes: 7328.   Trocas: 607353.   
+ORDENANDO PARA 10000 REGISTROS
+
+Media de Tempo em 5 execs: 0.00638376
+Media de Comparacao em 5 execs: 7328
+Media de Trocas em 5 execs: 367343
+---------------------------------------------------------------------------------------
+Ordenando com Merge sort : 
+Exececucao 1 : 
+Tempo: 0.0912629s.   Comparacoes: 704418.   Trocas: 784481.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.0683223s.   Comparacoes: 1124629.   Trocas: 1568962.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.0678474s.   Comparacoes: 1544840.   Trocas: 2353443.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.0678182s.   Comparacoes: 1965051.   Trocas: 3137924.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.0687875s.   Comparacoes: 2385262.   Trocas: 3922405.   
+ORDENANDO PARA 50000 REGISTROS
+
+Media de Tempo em 5 execs: 0.0728077
+Media de Comparacao em 5 execs: 1544840
+Media de Trocas em 5 execs: 2353443
+---------------------------------------------------------------------------------------
+Ordenando com Quick sort : 
+Exececucao 1 : 
+Tempo: 0.0418592s.   Comparacoes: 546692.   Trocas: 370363.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.0369027s.   Comparacoes: 1034746.   Trocas: 710877.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.0359317s.   Comparacoes: 1522800.   Trocas: 1051391.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.0359087s.   Comparacoes: 2010854.   Trocas: 1391905.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.0358702s.   Comparacoes: 2498908.   Trocas: 1732419.   
+ORDENANDO PARA 50000 REGISTROS
+
+Media de Tempo em 5 execs: 0.0372945
+Media de Comparacao em 5 execs: 1522800
+Media de Trocas em 5 execs: 1051391
+---------------------------------------------------------------------------------------
+Ordenando com Shell sort : 
+Exececucao 1 : 
+Tempo: 0.0428809s.   Comparacoes: 38673.   Trocas: 738679.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.0408944s.   Comparacoes: 38673.   Trocas: 1438685.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.0408858s.   Comparacoes: 38673.   Trocas: 2138691.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.0398651s.   Comparacoes: 38673.   Trocas: 2838697.   
+ORDENANDO PARA 50000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.0389191s.   Comparacoes: 38673.   Trocas: 3538703.   
+ORDENANDO PARA 50000 REGISTROS
+
+Media de Tempo em 5 execs: 0.0406891
+Media de Comparacao em 5 execs: 38673
+Media de Trocas em 5 execs: 2138691
+---------------------------------------------------------------------------------------
+Ordenando com Merge sort : 
+Exececucao 1 : 
+Tempo: 0.20844s.   Comparacoes: 1450790.   Trocas: 1668946.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.228328s.   Comparacoes: 2335700.   Trocas: 3337892.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.1951s.   Comparacoes: 3220610.   Trocas: 5006838.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.205254s.   Comparacoes: 4105520.   Trocas: 6675784.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.236394s.   Comparacoes: 4990430.   Trocas: 8344730.   
+ORDENANDO PARA 100000 REGISTROS
+
+Media de Tempo em 5 execs: 0.214703
+Media de Comparacao em 5 execs: 3220610
+Media de Trocas em 5 execs: 5006838
+---------------------------------------------------------------------------------------
+Ordenando com Quick sort : 
+Exececucao 1 : 
+Tempo: 0.0987362s.   Comparacoes: 1100146.   Trocas: 786614.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.110715s.   Comparacoes: 2261027.   Trocas: 1560214.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.113685s.   Comparacoes: 3421908.   Trocas: 2333814.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.117713s.   Comparacoes: 4582789.   Trocas: 3107414.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.108681s.   Comparacoes: 5743670.   Trocas: 3881014.   
+ORDENANDO PARA 100000 REGISTROS
+
+Media de Tempo em 5 execs: 0.109906
+Media de Comparacao em 5 execs: 3421908
+Media de Trocas em 5 execs: 2333814
+---------------------------------------------------------------------------------------
+Ordenando com Shell sort : 
+Exececucao 1 : 
+Tempo: 0.137632s.   Comparacoes: 124050.   Trocas: 1624056.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.114693s.   Comparacoes: 124050.   Trocas: 3124062.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.111209s.   Comparacoes: 124050.   Trocas: 4624068.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.110676s.   Comparacoes: 124050.   Trocas: 6124074.   
+ORDENANDO PARA 100000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.111701s.   Comparacoes: 124050.   Trocas: 7624080.   
+ORDENANDO PARA 100000 REGISTROS
+
+Media de Tempo em 5 execs: 0.117182
+Media de Comparacao em 5 execs: 124050
+Media de Trocas em 5 execs: 4624068
+---------------------------------------------------------------------------------------
+Ordenando com Merge sort : 
+Exececucao 1 : 
+Tempo: 1.47562s.   Comparacoes: 8692599.   Trocas: 9475732.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 2 : 
+Tempo: 1.2105s.   Comparacoes: 13611480.   Trocas: 18951464.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 3 : 
+Tempo: 1.13846s.   Comparacoes: 18530361.   Trocas: 28427196.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 4 : 
+Tempo: 1.26318s.   Comparacoes: 23449242.   Trocas: 37902928.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 5 : 
+Tempo: 1.19915s.   Comparacoes: 28368123.   Trocas: 47378660.   
+ORDENANDO PARA 500000 REGISTROS
+
+Media de Tempo em 5 execs: 1.25738
+Media de Comparacao em 5 execs: 18530361
+Media de Trocas em 5 execs: 28427196
+---------------------------------------------------------------------------------------
+Ordenando com Quick sort : 
+Exececucao 1 : 
+Tempo: 1.68925s.   Comparacoes: 6162163.   Trocas: 4490083.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.529578s.   Comparacoes: 12324144.   Trocas: 8808881.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.525099s.   Comparacoes: 18486125.   Trocas: 13127679.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.519285s.   Comparacoes: 24648106.   Trocas: 17446477.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.510926s.   Comparacoes: 30810087.   Trocas: 21765275.   
+ORDENANDO PARA 500000 REGISTROS
+
+Media de Tempo em 5 execs: 0.754827
+Media de Comparacao em 5 execs: 18486125
+Media de Trocas em 5 execs: 13127679
+---------------------------------------------------------------------------------------
+Ordenando com Shell sort : 
+Exececucao 1 : 
+Tempo: 0.60538s.   Comparacoes: 859320.   Trocas: 9359327.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.557382s.   Comparacoes: 859320.   Trocas: 17859334.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.55602s.   Comparacoes: 859320.   Trocas: 26359341.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.569477s.   Comparacoes: 859320.   Trocas: 34859348.   
+ORDENANDO PARA 500000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.552379s.   Comparacoes: 859320.   Trocas: 43359355.   
+ORDENANDO PARA 500000 REGISTROS
+
+Media de Tempo em 5 execs: 0.568128
+Media de Comparacao em 5 execs: 859320
+Media de Trocas em 5 execs: 26359341
+---------------------------------------------------------------------------------------
+Ordenando com Merge sort : 
+Exececucao 1 : 
+Tempo: 3.08009s.   Comparacoes: 18449290.   Trocas: 19951445.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 2 : 
+Tempo: 2.42968s.   Comparacoes: 29002473.   Trocas: 39902890.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 3 : 
+Tempo: 2.23034s.   Comparacoes: 39555656.   Trocas: 59854335.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 4 : 
+Tempo: 2.57676s.   Comparacoes: 50108839.   Trocas: 79805780.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 5 : 
+Tempo: 2.19091s.   Comparacoes: 60662022.   Trocas: 99757225.   
+ORDENANDO PARA 1000000 REGISTROS
+
+Media de Tempo em 5 execs: 2.50156
+Media de Comparacao em 5 execs: 39555656
+Media de Trocas em 5 execs: 59854335
+---------------------------------------------------------------------------------------
+Ordenando com Quick sort : 
+Exececucao 1 : 
+Tempo: 0.960168s.   Comparacoes: 12602819.   Trocas: 9574161.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 2 : 
+Tempo: 0.946141s.   Comparacoes: 25247313.   Trocas: 18827129.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 3 : 
+Tempo: 0.952425s.   Comparacoes: 37891807.   Trocas: 28080097.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 4 : 
+Tempo: 0.989478s.   Comparacoes: 50536301.   Trocas: 37333065.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 5 : 
+Tempo: 0.945044s.   Comparacoes: 63180795.   Trocas: 46586033.   
+ORDENANDO PARA 1000000 REGISTROS
+
+Media de Tempo em 5 execs: 0.958651
+Media de Comparacao em 5 execs: 37891807
+Media de Trocas em 5 execs: 28080097
+---------------------------------------------------------------------------------------
+Ordenando com Shell sort : 
+Exececucao 1 : 
+Tempo: 1.40449s.   Comparacoes: 990597.   Trocas: 18990604.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 2 : 
+Tempo: 1.34667s.   Comparacoes: 990597.   Trocas: 36990611.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 3 : 
+Tempo: 1.30152s.   Comparacoes: 990597.   Trocas: 54990618.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 4 : 
+Tempo: 1.20478s.   Comparacoes: 990597.   Trocas: 72990625.   
+ORDENANDO PARA 1000000 REGISTROS
+Exececucao 5 : 
+Tempo: 1.21163s.   Comparacoes: 990597.   Trocas: 90990632.   
+ORDENANDO PARA 1000000 REGISTROS
+
+Media de Tempo em 5 execs: 1.29382
+Media de Comparacao em 5 execs: 990597
+Media de Trocas em 5 execs: 54990618
+---------------------------------------------------------------------------------------

@@ -111,22 +111,6 @@ void Registro::leArquivo(Registro *r, int N, string nomeArquivo)
     arq.close();
 }
 
-// void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, Registro *registrosAux, int N)
-// {
-//     int somaIndex=rand() % 1000000 + 26412;
-//     int indexzada;
-//     for (int i = 0; i < N; i++)
-//     {
-//         indexzada = rand() % 1000000 + 26412; //45168
-//         while (indexzada >= 1431490)
-//         {
-//             indexzada=somaIndex *(rand() % 10 +1);
-//         }
-
-//         registrosAux[i] = registroPrincipal[indexzada];
-//     }
-// }
-
 void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, Registro *registrosAux, int N)
 {
     int somaIndex=rand() % 1000000 + 26412;;
@@ -153,7 +137,7 @@ void Registro::preProcessamentoComMergeSort(Registro *registros, int N)
 {
     Ordenadores *ord = new Ordenadores();
     string nomeArquivoEntrada;
-    cout << "Por favor , digite o nome do arquivo para o Pre-Processamento dos dados." << endl;
+    cout << "Por favor , digite o nome/caminho do arquivo para o Pre-Processamento dos dados." << endl;
     cin >> nomeArquivoEntrada;
     registros->leArquivo(registros, N, nomeArquivoEntrada);
     cout << "Realizando Pre-Processamento..." << endl;
@@ -171,10 +155,18 @@ void Registro::exibeRegistrosPreProcessados(Registro *r, int N)
 }
 void Registro::exibeRegistros(Registro *r, int N)
 {
-    for (int i = 0; i <(N); i++)
-    {
-        cout << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
+    if(r[0].getDataCompleta()!=""){
+        for (int i = 0; i <(N); i++)
+        {
+            cout << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
+        }
+    }else{
+        for (int i = 1; i <(N+1); i++)
+        {
+            cout << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
+        }
     }
+    
 }
 
 void Registro::setVisitado(bool visitado)
