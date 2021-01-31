@@ -139,51 +139,79 @@ void OrdenadoresMenu()
     cout << "*1.000.000" << endl;
 }
 
+
+
 void menu()
 {
-
+    int men = -1;
+    int volta = 0;
     int tamanhoN[] = {10000, 50000, 100000, 500000, 1000000, TAMANHOMAX};
     Registro *registros = new Registro[tamanhoN[5]];
     Registro *registrosAux =new Registro[1000000];//tamanho máximo que pode ter
 
-    int men;
-    cout << "===============Menu===============" << endl;
-    cout << "[1]->Pre-processamento dos dados" << endl;
-    cout << "[2]->Modulo de Teste" << endl;
-    cout << "[3]->Etapa 2 do Trab -> trocar nome dps" << endl;
-    cout << "[4]->Finzaliza execucao" << endl;
-    cin >> men;
-
-    if (men == 1)
+    while(men != 4)
     {
-        //Fazer o pre processamento atraves do MergeSort
-        registros->preProcessamentoComMergeSort(registros, tamanhoN[5]);
-        registros->selecionandoRegistrosAleatorios(registros,registrosAux,100000);// apagar
-        registrosAux->escreveArquivoSaidaCsv(registrosAux,100000,"teste.csv");//apagar
-        menu();
-    }
-    if (men == 2)
-    {
-        cout << "===============Modulo de Teste===============" << endl;
+        cout << "===============Menu===============" << endl;
         cout << "[1]->Pre-processamento dos dados" << endl;
-        cout << "[2]->Importação de N registros aleatórios" << endl;
-        cout << "[3]->Cada um dos algoritmos de ordenação" << endl;
+        cout << "[2]->Modulo de Teste" << endl;
+        cout << "[3]->Etapa 2 do Trab -> trocar nome dps" << endl;
+        cout << "[4]->Finzaliza execucao" << endl;
         cin >> men;
+        switch(men)
+        {
+        case 1:
+            registros->preProcessamentoComMergeSort(registros, tamanhoN[5]);
+            break;
+            case 2:
+                
+            cout << "===============Modulo de Teste===============" << endl;
+            cout << "[1]->Testar o pre-processamento dos dados" << endl;
+            cout << "[2]->Testar a importação de N registros aleatórios" << endl;
+            cout << "[3]->Testar Cada um dos algoritmos de ordenação" << endl;
+            cin >> men;
 
-        if (men == 1)
-        {
-            cout << "[1]->Saida no Console do Teste N=10" << endl;
-            cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
-        }
-        if (men == 2)
-        {
-            cout << "[1]->Saida no Console do Teste N=10" << endl;
-            cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
-        }
-        if (men == 3)
-        {
-            cout << "[1]->Saida no Console do Teste N=10" << endl;
-            cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
+            if (men == 1)
+            {
+                cout << "[1]->Saida no Console do Teste N=10" << endl;
+                cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
+                cin >> men;
+                if(men == 1){
+                    registros->exibeRegistrosPreProcessados(registros,10);
+                    break;
+                }
+                if(men == 2){
+                    registros->escreveArquivoSaidaCsv(registros,100,"moduloDeTestePreProcessamento.csv");
+                    break;
+                    
+                }
+
+            }
+            if (men == 2)
+            {
+                cout << "[1]->Saida no Console do Teste N=10" << endl;
+                cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
+                cin >> men;
+                if(men == 1){
+                    registros->selecionandoRegistrosAleatorios(registros,registrosAux,10);
+                    registros->exibeRegistros(registrosAux,10);
+                    break;
+                }
+                if(men == 2){
+                    registros->selecionandoRegistrosAleatorios(registros,registrosAux,100);
+                    registros->escreveArquivoSaidaCsv(registrosAux,100,"moduloDeTesteImportacaoRegistrosAleatorios.csv");
+                }
+            }
+            if (men == 3)
+            {
+                cout << "[1]->Saida no Console do Teste N=10" << endl;
+                cout << "[2]->Saida em um Arquivo Txt do Teste N=100" << endl;
+            }
+                break;
+        case 3:
+            break;
+        case 4:
+            break;
+            
         }
     }
 }

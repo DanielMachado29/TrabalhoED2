@@ -37,4 +37,6 @@ public:
     void leArquivo(Registro *r, int N, string nomeArquivo);
     void selecionandoRegistrosAleatorios(Registro *registroPrincipal,Registro *registrosAux, int N);
     void preProcessamentoComMergeSort(Registro *registros, int N);
+    void exibeRegistrosPreProcessados(Registro *registros, int N);
+    void exibeRegistros(Registro *registros, int N);
 };

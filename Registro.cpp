@@ -46,10 +46,17 @@ void Registro::escreveArquivoSaidaCsv(Registro *r, int size, string nomeSaidaArq
     ofstream arq(nomeSaidaArquivo);
     cout << "Escrevendo arquivo de saida..." << endl;
     arq << "data,estado,nomeCidade,codigo,casos,mortes" << endl;
-    for (int i = 1; i <= size; i++)
+    int i;
+    if(r[0].getDataCompleta()!=""){
+        for (i=0; i <= size-1; i++)
     {
         arq << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
     }
+    }else {for (i=1; i <= size; i++)
+    {
+        arq << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
+    }}
+    
     arq.close();
 }
 
@@ -132,6 +139,21 @@ void Registro::preProcessamentoComMergeSort(Registro *registros, int N)
     ord->mergeSortPreProcessamento(registros, 0, N);
     registros->transformaCasosAcumuladosEmCasosDiarios(registros, N);
     registros->escreveArquivoSaidaCsv(registros, N, "brazil_covid19_cities_processados.csv");
+}
+
+void Registro::exibeRegistrosPreProcessados(Registro *r, int N)
+{
+    for (int i = 1; i <(N+1); i++)
+    {
+        cout << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
+    }
+}
+void Registro::exibeRegistros(Registro *r, int N)
+{
+    for (int i = 0; i <(N); i++)
+    {
+        cout << r[i].getDataCompleta() << "," << r[i].getEstado() << "," << r[i].getCidade() << "," << r[i].getCodigoCidade() << "," << r[i].getCasos() << "," << r[i].getMortes() << endl;
+    }
 }
 
 void Registro::setVisitado(bool visitado)
