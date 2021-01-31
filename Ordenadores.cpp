@@ -193,16 +193,17 @@ void Ordenadores::quickSort(Registro *registros, int inicio, int fim)
     Registro b = registros[meio];
     Registro c = registros[fim];
     int medianaIndice;
-
+    quantidadeComparacoes++;
     if (a.getCasos() < b.getCasos())
     {
+        quantidadeComparacoes++;
         if (b.getCasos() < c.getCasos())
         {
             //a < b && b < c
             medianaIndice = meio;
         }
         else
-        {
+        {       quantidadeComparacoes++;
             if (a.getCasos() < c.getCasos())
             {
                 //a < c && c <= b
@@ -216,14 +217,14 @@ void Ordenadores::quickSort(Registro *registros, int inicio, int fim)
         }
     }
     else
-    {
+    {   quantidadeComparacoes++;
         if (c.getCasos() < b.getCasos())
         {
             //c < b && b <= a
             medianaIndice = meio;
         }
         else
-        {
+        {   quantidadeComparacoes++;
             if (c.getCasos() < a.getCasos())
             {
                 //b <= c && c < a
@@ -240,7 +241,7 @@ void Ordenadores::quickSort(Registro *registros, int inicio, int fim)
     Registro pivo = registros[medianaIndice];
 
     while (i <= j)
-    {
+    {   quantidadeComparacoes++;
         while (registros[i].getCasos() < pivo.getCasos() && i < fim)
         {
             i++;
@@ -251,6 +252,7 @@ void Ordenadores::quickSort(Registro *registros, int inicio, int fim)
         }
         if (i <= j)
         {
+            quantidadeTrocas++;
             swap(registros[i], registros[j]);
             i++;
             j--;

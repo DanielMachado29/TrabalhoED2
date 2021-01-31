@@ -39,4 +39,5 @@ public:
     void preProcessamentoComMergeSort(Registro *registros, int N);
     void exibeRegistrosPreProcessados(Registro *registros, int N);
     void exibeRegistros(Registro *registros, int N);
+    void escreveSaidaTxt(Registro *r, int size, string nomeSaidaArquivo);
 };

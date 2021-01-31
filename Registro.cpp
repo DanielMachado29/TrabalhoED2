@@ -60,6 +60,13 @@ void Registro::escreveArquivoSaidaCsv(Registro *r, int size, string nomeSaidaArq
     arq.close();
 }
 
+void Registro::escreveSaidaTxt(Registro *r, int size, string nomeSaidaArquivo)
+{
+    ofstream arq(nomeSaidaArquivo);
+    arq << "vapo";
+    arq.close();
+}
+
 void Registro::leArquivo(Registro *r, int N, string nomeArquivo)
 {
 
@@ -104,27 +111,41 @@ void Registro::leArquivo(Registro *r, int N, string nomeArquivo)
     arq.close();
 }
 
+// void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, Registro *registrosAux, int N)
+// {
+//     int somaIndex=rand() % 1000000 + 26412;
+//     int indexzada;
+//     for (int i = 0; i < N; i++)
+//     {
+//         indexzada = rand() % 1000000 + 26412; //45168
+//         while (indexzada >= 1431490)
+//         {
+//             indexzada=somaIndex *(rand() % 10 +1);
+//         }
+
+//         registrosAux[i] = registroPrincipal[indexzada];
+//     }
+// }
+
 void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, Registro *registrosAux, int N)
 {
-    int somaIndex;
-    int indexzada;
+    int somaIndex=rand() % 1000000 + 26412;;
+    int indexzada=rand() % 1000000 + 26412;
     for (int i = 0; i < N; i++)
     {
-        somaIndex = rand() % 1000000 + 26412;
-        while (somaIndex >= 1431490)
-        {
-            somaIndex = std::chrono::system_clock::now().time_since_epoch().count();
-            somaIndex / (rand() % 1000000 + 26412);
+        indexzada = indexzada + somaIndex;
+        if(registroPrincipal[indexzada].getVisitado()){
+            indexzada= indexzada+(somaIndex/3);
         }
-        indexzada = somaIndex * (rand() % 10 + 1);
-
-        while (registroPrincipal[indexzada].getVisitado())
-        {
-            indexzada = indexzada + (rand() % 14 + 1);
+        if(indexzada>=1431490){
+            indexzada = somaIndex;
         }
-
         registrosAux[i] = registroPrincipal[indexzada];
         registroPrincipal[indexzada].setVisitado(true);
+
+    }
+    for (int i = 0; i < 1431490; i++){
+        registroPrincipal[i].setVisitado(false);
     }
 }
 
