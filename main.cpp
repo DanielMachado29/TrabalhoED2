@@ -190,8 +190,8 @@ void menu()
                 }
                 if (men == 2)
                 {
-                    registros->selecionandoRegistrosAleatorios(registros, registrosAux, 1000000);
-                    registros->escreveArquivoSaidaCsv(registrosAux, 1000000, "moduloDeTesteImportacaoRegistrosAleatorios.csv");
+                    registros->selecionandoRegistrosAleatorios(registros, registrosAux, 100);
+                    registros->escreveArquivoSaidaCsv(registrosAux, 100, "moduloDeTesteImportacaoRegistrosAleatorios.csv");
                 }
             }
             if (men == 3)
