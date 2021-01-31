@@ -24,6 +24,8 @@ public:
     void setCodigoCidade(int codigoCidade);
     void setCasos(int casos);
     void setMortes(int mortes);
+    void setVisitado( bool visitado);
+    bool getVisitado();
     string getDataCompleta();
     string getEstado();
     string getCidade();
@@ -33,6 +35,6 @@ public:
     void transformaCasosAcumuladosEmCasosDiarios(Registro *registros, int N);
     void escreveArquivoSaidaCsv(Registro *r, int size, string nomeSaidaArquivo);
     void leArquivo(Registro *r, int N, string nomeArquivo);
-    void selecionandoRegistrosAleatorios(Registro *registroPrincipal, int N);
+    void selecionandoRegistrosAleatorios(Registro *registroPrincipal,Registro *registrosAux, int N);
     void preProcessamentoComMergeSort(Registro *registros, int N);
 };

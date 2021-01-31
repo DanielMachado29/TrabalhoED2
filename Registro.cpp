@@ -24,8 +24,6 @@ Registro::Registro()
 
 Registro::~Registro() {}
 
-
-
 void Registro::transformaCasosAcumuladosEmCasosDiarios(Registro *registros, int N)
 {
     Registro *aux = new Registro[N];
@@ -89,6 +87,7 @@ void Registro::leArquivo(Registro *r, int N, string nomeArquivo)
         getline(ss, stringTemporaria3, ',');
         istringstream(stringTemporaria3) >> mortes;
         r[cont].setMortes(mortes);
+        r[cont].setVisitado(false);
 
         if (cont > N)
             break;
@@ -98,15 +97,29 @@ void Registro::leArquivo(Registro *r, int N, string nomeArquivo)
     arq.close();
 }
 
-void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, int N)
+void Registro::selecionandoRegistrosAleatorios(Registro *registroPrincipal, Registro *registrosAux, int N)
 {
-    // Registro *registrosAux = new Registro[N];
-    // for(int i=0 ; i<N ; i++)
-    //     registrosAux[i]=registroPrincipal[i];
+    int somaIndex;
+    int indexzada;
+    for (int i = 0; i < N; i++)
+    {
+        somaIndex = rand() % 1000000 + 26412;
+        while (somaIndex >= 1431490)
+        {
+            somaIndex = std::chrono::system_clock::now().time_since_epoch().count();
+            somaIndex / (rand() % 1000000 + 26412);
+        }
+        indexzada = somaIndex * (rand() % 10 + 1);
 
+        while (registroPrincipal[indexzada].getVisitado())
+        {
+            indexzada = indexzada + (rand() % 14 + 1);
+        }
 
+        registrosAux[i] = registroPrincipal[indexzada];
+        registroPrincipal[indexzada].setVisitado(true);
+    }
 }
-
 
 void Registro::preProcessamentoComMergeSort(Registro *registros, int N)
 {
@@ -119,6 +132,16 @@ void Registro::preProcessamentoComMergeSort(Registro *registros, int N)
     ord->mergeSortPreProcessamento(registros, 0, N);
     registros->transformaCasosAcumuladosEmCasosDiarios(registros, N);
     registros->escreveArquivoSaidaCsv(registros, N, "brazil_covid19_cities_processados.csv");
+}
+
+void Registro::setVisitado(bool visitado)
+{
+    this->visitado = visitado;
+}
+
+bool Registro::getVisitado()
+{
+    return visitado;
 }
 
 void Registro::setDataCompleta(string dataCompleta)

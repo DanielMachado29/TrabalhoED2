@@ -24,7 +24,7 @@ public:
     {
         return quantidadeComparacoes;
     }
-    unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count(); //gerando numero aleatorio vai precisar dps
+    
 
 private:
     unsigned long int quantidadeComparacoes;
