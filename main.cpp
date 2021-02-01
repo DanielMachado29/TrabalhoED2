@@ -116,7 +116,7 @@ void ordenandoComMergeSort(Registro *registros, int N,string nomeArquivo)
     int mediaTrocas = 0;
     double mediaTempo = 0;
     int M=5;
-    arq <<"Ordenando com Merge sort : "<<endl;
+    arq <<"Ordenando com Merge sort para "<<N<<" registros: "<<endl;
     for (int i = 0; i < M; i++)
     {
         high_resolution_clock::time_point inicio = high_resolution_clock::now();
@@ -129,7 +129,6 @@ void ordenandoComMergeSort(Registro *registros, int N,string nomeArquivo)
         mediaTempo = mediaTempo + (duration_cast<duration<double>>(fim - inicio).count());
         mediaComparacao = mediaComparacao + ord->getQuantidadeComparacoes();
         mediaTrocas = mediaTrocas + ord->getQuantidadeTrocas();
-        arq<<"ORDENANDO PARA "<<N<<" REGISTROS"<<endl;
     }
     arq<<endl;
 
@@ -150,7 +149,7 @@ void ordenandoComQuickSort(Registro *registros, int N,string nomeArquivo)
     int mediaTrocas = 0;
     double mediaTempo = 0;
     int M=5;
-    arq <<"Ordenando com Quick sort : "<<endl;
+    arq <<"Ordenando com Quick sort  para "<<N<<" registros: "<<endl;
     for (int i = 0; i < M; i++)
     {
         high_resolution_clock::time_point inicio = high_resolution_clock::now();
@@ -163,7 +162,6 @@ void ordenandoComQuickSort(Registro *registros, int N,string nomeArquivo)
         mediaTempo = mediaTempo + (duration_cast<duration<double>>(fim - inicio).count());
         mediaComparacao = mediaComparacao + ord->getQuantidadeComparacoes();
         mediaTrocas = mediaTrocas + ord->getQuantidadeTrocas();
-        arq<<"ORDENANDO PARA "<<N<<" REGISTROS"<<endl;
     }
     arq<<endl;
 
@@ -182,7 +180,7 @@ void ordenandoComShellSort(Registro *registros, int N, string nomeArquivo)
     int mediaTrocas = 0;
     double mediaTempo = 0;
     int M=5;
-    arq <<"Ordenando com Shell sort : "<<endl;
+    arq <<"Ordenando com Shell sort para "<<N<<" registros: "<<endl;
     for (int i = 0; i < M; i++)
     {
         high_resolution_clock::time_point inicio = high_resolution_clock::now();
@@ -195,7 +193,6 @@ void ordenandoComShellSort(Registro *registros, int N, string nomeArquivo)
         mediaTempo = mediaTempo + (duration_cast<duration<double>>(fim - inicio).count());
         mediaComparacao = mediaComparacao + ord->getQuantidadeComparacoes();
         mediaTrocas = mediaTrocas + ord->getQuantidadeTrocas();
-        arq<<"ORDENANDO PARA "<<N<<" REGISTROS"<<endl;
     }
     arq<<endl;
 
@@ -322,3 +319,4 @@ int main()
 }
 
 //  g++ -o teste -O3 *.cpp
+// ./teste
