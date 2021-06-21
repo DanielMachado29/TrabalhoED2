@@ -22,14 +22,7 @@ void criaArquivoSaidaTxt(string nomeArquivo){
     arq.close();
 }
 
-void ordenaTesteMerge(Registro *registros, int N){
-    Ordenadores *ord = new Ordenadores();
-    ord->mergeSort(registros, 0, N);
-    cout<<"Ordenado por MergeSort :"<<endl;
-    registros->exibeRegistros(registros,N);
-    cout<<endl;
 
-}
 void ordenaTesteQuick(Registro *registros, int N){
     Ordenadores *ord = new Ordenadores();
     ord->quickSort(registros, 0, N);
